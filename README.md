@@ -1,2 +1,2 @@
 # whatsappChatAnalyser
-WhatsappChat Analyser in Python
+Python Analyser for the Whatsapp 
