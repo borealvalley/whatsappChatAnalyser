@@ -9,13 +9,20 @@ def getFilePath() :
     return filename
 
 #open File and get its contents split in lists
-def getNames(Path) :
-    file = open(Path, "r", encoding="utf8")
+def getNames(path) :
+    file = open(path, "r", encoding="utf8")
+    dictnames = {} 
     for line in file:
-        names = re.search(r"-(\s.*):\s", line)
-        print(names)
-        
+        names = re.search(r"-(\s[A-z]+)+:\s", line)
+        if names : 
+            name = names.group(0)
+            name = name[2:-2]
+            if name in dictnames:
+                dictnames[name] = dictnames[name] + 1
+            else:
+                dictnames[name] = 1
+            
+    print(dictnames)
 
-
-pathToFile= getFilePath()
+pathToFile = getFilePath()
 getNames(pathToFile)
