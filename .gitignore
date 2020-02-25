@@ -7,3 +7,5 @@
 *.txt
 *.spec
 build
+__pycache__
+output
